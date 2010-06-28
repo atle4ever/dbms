@@ -1,0 +1,26 @@
+.SUFFIXES: .cc .o
+
+CC = g++
+CFLAGS = -g -c
+TARGET = dbms
+
+OBJS=const.o table.o main.o
+SRCS=const.cc table.cc main.cc
+
+$(TARGET): $(OBJS)
+	$(CC) $(CLFAGS) -o $(TARGET) $(OBJS)
+
+clean:
+	rm -f $(OBJS) $(TARGET) .depend
+
+.cc.o:
+	$(CC) $(CFLAGS) $< -o $@
+
+depend:
+	makedepend $(CFLAGS) $(SRCS)
+
+# DO NOT DELETE
+
+const.o: const.h
+table.o: table.h const.h
+main.o: table.h const.h
