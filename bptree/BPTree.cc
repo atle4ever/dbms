@@ -1,61 +1,55 @@
+#include "BPTree.h"
 #include <string>
 #include <sstream>
 
 //
 //---------------------------------------------------------
 //
+BPTree::BPTree() {}
 
-template<typename Key, typename Data, int NODE_SIZE>
-BPTree<Key, Data, NODE_SIZE>::BPTree() {}
 
-template<typename Key, typename Data, int NODE_SIZE>
-std::string
-BPTree<Key, Data, NODE_SIZE>::inspect()
+std::string BPTree::inspect()
 {
-	std::ostringstream os;
-	#define OUTPUT(a) os << # a << ": " << a << '\n'
-	OUTPUT(sizeof(BPTree));
-	OUTPUT(sizeof(typename BPTree::BranchNode));
-	OUTPUT(sizeof(typename BPTree::LeafNode));
-	OUTPUT(BranchNode::HEADER_SIZE);
-	OUTPUT(BranchNode::MAX_SLOTS);
-	OUTPUT(  LeafNode::HEADER_SIZE);
-	OUTPUT(  LeafNode::MAX_SLOTS);
-	#undef OUTPUT
-	return os.str();
+    std::ostringstream os;
+    #define OUTPUT(a) os << # a << ": " << a << '\n'
+    OUTPUT(sizeof(BPTree));
+    OUTPUT(sizeof(BPTree::BranchNode));
+    OUTPUT(sizeof(BPTree::LeafNode));
+    OUTPUT(BranchNode::HEADER_SIZE);
+    OUTPUT(BranchNode::MAX_SLOTS);
+    OUTPUT(  LeafNode::HEADER_SIZE);
+    OUTPUT(  LeafNode::MAX_SLOTS);
+    #undef OUTPUT
+    return os.str();
 }
 
-template<typename Key, typename Data, int NODE_SIZE>
-std::vector<Key>
-BPTree<Key, Data, NODE_SIZE>::dfs()
+
+std::vector<Key> BPTree::dfs()
 {
-	// TODO
-	std::vector<Key> vec;
-	return vec;
+    // TODO
+    std::vector<Key> vec;
+    return vec;
 }
 
-template<typename Key, typename Data, int NODE_SIZE>
-typename BPTree<Key, Data, NODE_SIZE>::Iterator
-BPTree<Key, Data, NODE_SIZE>::search(Key key)
+
+BPTree::Iterator BPTree::search(Key key)
 {
-	// TODO
-	Iterator it;
-	return it;
+    // TODO
+    Iterator it;
+    return it;
 }
 
-template<typename Key, typename Data, int NODE_SIZE>
-void
-BPTree<Key, Data, NODE_SIZE>::insert(Key key, const Data& data)
+
+void BPTree::insert(Key key, const Data& data)
 {
-	// TODO
+    // TODO
 }
 
-template<typename Key, typename Data, int NODE_SIZE>
-long
-BPTree<Key, Data, NODE_SIZE>::remove(Key key)
+
+long BPTree::remove(Key key)
 {
-	// TODO
-	return 0;
+    // TODO
+    return 0;
 }
 
 //
@@ -66,36 +60,36 @@ BPTree<Key, Data, NODE_SIZE>::remove(Key key)
 //---------------------------------------------------------
 //
 
-template<typename Key, typename Data, int NODE_SIZE>
-typename BPTree<Key, Data, NODE_SIZE>::Iterator
-BPTree<Key, Data, NODE_SIZE>::begin()
+
+BPTree::Iterator BPTree::begin()
 {
-	// TODO
-	Iterator it;
-	return it;
+    // TODO
+    Iterator it;
+    return it;
 }
 
-template<typename Key, typename Data, int NODE_SIZE>
-typename BPTree<Key, Data, NODE_SIZE>::Iterator&
-BPTree<Key, Data, NODE_SIZE>::Iterator::operator++()
+BPTree::Iterator BPTree::end()
 {
-	// TODO
-	*this = Iterator();
-	return *this;
+    return Iterator();
 }
 
-template<typename Key, typename Data, int NODE_SIZE>
-Key
-BPTree<Key, Data, NODE_SIZE>::Iterator::key()
+
+BPTree::Iterator& BPTree::Iterator::operator++()
 {
-	// TODO
-	return Key();
+    // TODO
+    *this = Iterator();
+    return *this;
 }
 
-template<typename Key, typename Data, int NODE_SIZE>
-Data&
-BPTree<Key, Data, NODE_SIZE>::Iterator::data()
+
+Key BPTree::Iterator::key()
 {
-	// TODO
+    // TODO
+    return Key();
 }
 
+
+Data& BPTree::Iterator::data()
+{
+    // TODO
+}

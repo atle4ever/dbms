@@ -1,11 +1,11 @@
 # Makefile for B+Tree homework
 
 EXEC    = bptree_test
-HEADER  = $(wildcard *.h) BPTree.cc
+HEADER  = $(wildcard *.h)
 SRC     = $(filter-out $(HEADER), $(wildcard *.cc))
 CFLAGS  = -g -O2 -Wall
 # CFLAGS  = -O2 -Wall
-INCLUDE = /usr/include/boost
+INCLUDE =
 
 #-------------------------------------------------
 # Compiler options -------------------------------
