@@ -32,7 +32,7 @@ std::vector<Key> BPTree::dfs()
 }
 
 
-BPTree::Iterator BPTree::search(Key key)
+BPTree::Iterator BPTree::search(const Key& key)
 {
     // TODO
     Iterator it;
@@ -40,13 +40,13 @@ BPTree::Iterator BPTree::search(Key key)
 }
 
 
-void BPTree::insert(Key key, const Data& data)
+void BPTree::insert(const Key& key, const Data& data)
 {
     // TODO
 }
 
 
-long BPTree::remove(Key key)
+long BPTree::remove(const Key& key)
 {
     // TODO
     return 0;

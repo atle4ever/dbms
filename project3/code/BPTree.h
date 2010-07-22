@@ -24,16 +24,16 @@ public:
     class Iterator;
 
     // Insert operation
-    void insert(Key key, const Data& data);
+    void insert(const Key& key, const Data& data);
 
     // Remove opeartion
     // Returns the number of removed entries
-    long remove(Key key);
+    long remove(const Key& key);
 
     // Searches for the iterator to the leftmost entry
     // matches the specified key
     // Returns null iterator if not found
-    Iterator search(Key key);
+    Iterator search(const Key& key);
 
     // Returns the iterator to the leftmost data entry
     Iterator begin();
@@ -47,7 +47,11 @@ public:
     // Returns information of the tree, for debugging
     std::string inspect();
 
+    // Check if B+tree is valid
+    void check(void);
+
 private:
+    // TODO: Declare your private method and member
 };
 
 
@@ -58,7 +62,7 @@ private:
 class BPTree::Node
 {
 public:
-    virtual ~Node() {}
+    virtual ~Node();
     virtual bool isLeaf() = 0;
 private:
     friend class BPTree;
@@ -72,13 +76,13 @@ private:
 class BPTree::BranchNode : public Node
 {
 public:
+    bool isLeaf() { return false; }
+
+private:
     const static int HEADER_SIZE = 0; // XXX
     const static int MAX_SLOTS   = (NODE_SIZE - HEADER_SIZE - sizeof(Node*))
                                     / (sizeof(Key) + sizeof(Node*));
 
-    bool isLeaf() { return false; }
-
-private:
     Key   keys [MAX_SLOTS];
     Node* child[MAX_SLOTS + 1];
 
@@ -93,13 +97,13 @@ private:
 class BPTree::LeafNode : public Node
 {
 public:
-    const static int HEADER_SIZE = sizeof(LeafNode*); // XXX
-    const static int MAX_SLOTS   = (NODE_SIZE - HEADER_SIZE)
-                                    / (sizeof(Key) + sizeof(Data));
-
     bool isLeaf() { return true; }
 
 private:
+    const static int HEADER_SIZE = sizeof(LeafNode*); // XXX
+    const static int MAX_SLOTS   = (NODE_SIZE - HEADER_SIZE)
+        / (sizeof(Key) + sizeof(Data));
+
     Key   keys[MAX_SLOTS];
     Data  data[MAX_SLOTS];
 
@@ -118,6 +122,7 @@ class BPTree::Iterator
 {
 public:
     Iterator() : leaf(0), index(0) {}
+    Iterator(BPTree::LeafNode* leaf, int index) : leaf(leaf), index(index) {}
 
     Iterator& operator++();    // Prefix
     Iterator operator++(int) { // Postfix
