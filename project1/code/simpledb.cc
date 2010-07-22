@@ -1,19 +1,61 @@
 #include "simpledb.h"
 
-void insertStudent(const int sid, const char sname[], const float gpa, const int age) {}
+/* Hard-structured record */
+struct Student {
+    int sid;
+    char sname[30];
+    float gpa;
+    int age;
+};
 
-void deleteStudent(const int sid) {}
+struct Class {
+    int cid;
+    char cname[30];
+};
 
-void insertClass(const int cid, const char cname[]) {}
+struct Enroll {
+    int sid;
+    int cid;
+    float grade;
+};
 
-void deleteClass(const int sid) {}
+/* Hard-structured table */
+struct Student studentTable[100];
+struct Class classTable[100];
+struct Enroll enrollTable[100];
 
-void insertEnroll(const int sid, const int cid, const float grade) {}
+void insertStudent(const int sid, const char sname[], const float gpa, const int age) {
+    // TODO
+}
 
-void deleteEnroll(const int sid, const int cid) {}
+void deleteStudent(const int sid) {
+    // TODO
+}
 
-void select(const ComType cmp, const int sid) {}
+void insertClass(const int cid, const char cname[]) {
+    // TODO
+}
 
-void join(const ComType cmp, const float grade) {}
+void deleteClass(const int sid) {
+    // TODO
+}
 
-void group(const AggType agg) {}
+void insertEnroll(const int sid, const int cid, const float grade) {
+    // TODO
+}
+
+void deleteEnroll(const int sid, const int cid) {
+    // TODO
+}
+
+void select(const CmpOp cmp, const int sid) {
+    // TODO
+}
+
+void join(const CmpOp cmp, const float grade) {
+    // TODO
+}
+
+void group(const AggFun agg) {
+    // TODO
+}
