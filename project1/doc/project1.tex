@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{hangul}
+\usepackage{color}
+%\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Project1}
+\author{Kim, Seongjun}
+%\date{2010-07-22}                                           % Activate to display a given date or no date
+
+\newcommand{\head}[1]{\LARGE \textbf{#1} \normalsize \\}
+
+\begin{document}
+\maketitle
+\head{Goal}
+Make simple DBMS that processing some SQL on predefined tables. Its DB have Student, Class, Enroll tables. Its schemata are
+
+\begin{itemize}
+	\item create table Student (int sid primary key, char(30) sname, int age, float gpa);
+	\item create table Class (int cid primary key, char(30) cname);
+	\item create table Enroll (int sid, int cid, float grade, primary key(sid, cid));
+\end{itemize}
+
+\textcolor{red}{Following `simpledb.h', complete `simpledb.cc'.}
+\\
+\\
+This simple DBMS support following queries.
+
+\begin{itemize}
+	\item INSERT: insert into $<$table$>$ values ($<$values$>$)
+	\item DELETE: delete from $<$table$>$ where id = $<$id$>$
+	\item SELECT: select * from student where sid $<$cmp$>$ $<$sid$>$
+	\item JOIN: select s.sname, c.name from student as s, class as c, enroll as e where s.sid = e.sid and c.cid = e.sid and e.grade $<$cmd$>$ $<$grade$>$
+	\item GROUP BY: select age, $<$agg$>$(gpa) from student group by age
+\end{itemize} 
+
+And result is printed in screen(stdout).
+\\
+
+\head{How to compile \& run}
+	\$ make \\
+	\$ ./simpledb
+\\
+
+\head{References}
+Chapter 1, 3, 4, 5
+
+\end{document}
