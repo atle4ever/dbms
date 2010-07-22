@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{hangul}
+\usepackage{color}
+%\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Project3}
+\author{Kim, Seongjun}
+%\date{2010-07-22}                                           % Activate to display a given date or no date
+
+\newcommand{\head}[1]{\LARGE \textbf{#1} \normalsize \\}
+
+\begin{document}
+\maketitle
+\head{Goal}
+Make B+-tree index.
+
+The key is `int' type. Its size is 4 or 8 bytes (depends on machine). The data is pointer type and its size is also 4 or 8 byte. The block's size is 4096 bytes. If B+-tree is on 32-bit machine, leaf node has $\lfloor (4096-4) / 4 \rfloor = 1023$ keys and pointers.
+
+Insert and remove operations are trivial. But search operation is subtle. Because this B+-tree allows duplicate keys, search operation returns a iterator that points leftmost data of duplicate key. You can access all data by using this iterator. If it can't find key, it return null iterator.
+
+\Large \textcolor{red}{Following `BPTree.h', implement all public methods of BPTree class in `BPTree.cc'.} \normalsize
+
+\emph{Warning: Don't change declaration of public method of BPTree class. If you need, first let me know why it is need and how to change by e-mail.}
+\\
+
+\head{How to compile \& run}
+	\$ make \\
+	\$ ./bptree\_test
+\\
+
+\head{References}
+Chapter 10
+
+\end{document}

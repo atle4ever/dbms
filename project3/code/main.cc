@@ -19,7 +19,7 @@ void functional_test()
 
     // Insert values (0 ~ 99)
     const int COUNT = 100;
-    vector<long> keys;
+    vector<Key> keys;
     for (int i = 0; i < COUNT; ++i)
         keys.push_back(i);
     random_shuffle(keys.begin(), keys.end());
@@ -27,7 +27,7 @@ void functional_test()
         tree.insert(keys[i], NULL);
 
     // Depth-first search
-    vector<long> dfs_seq(tree.dfs());
+    vector<Key> dfs_seq(tree.dfs());
     copy(dfs_seq.begin(), dfs_seq.end(),
             ostream_iterator<long>(cout, " "));
     cout << endl;
@@ -51,7 +51,6 @@ void functional_test()
     cout << endl;
 
     // Remove operation
-    // TODO
     tree.remove(50);
 
     // TODO: Duplicate handling

@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-typedef long Key;
+typedef int Key;
 typedef void* Data;
 const int NODE_SIZE = 4096;
 
@@ -48,6 +48,11 @@ public:
     std::string inspect();
 
     // Check if B+tree is valid
+    //   1. Every node has at most m children.
+    //   2. Every node (except root) has at least m/2 children.
+    //   3. All leaves appear in the same level.
+    //   4. Every key in internal nodes is larger than all keys in left sub-tree,
+    //   and less or equal than all keys in right sub-tree.
     void check(void);
 
 private:
