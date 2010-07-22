@@ -1,0 +1,14 @@
+# Compile
+*.o
+
+# Tex
+*.aux
+*.log
+*.synctex.gz
+
+# Mac stuff
+.DS_Store
+*.dSYM
+
+# editor stuff
+*~
