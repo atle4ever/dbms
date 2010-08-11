@@ -1,19 +1,44 @@
-#include "table.h"
 #include <iostream>
+#include <vector>
+
+#include "ParseTree.h"
+#include "Executor.h"
+
+using namespace std;
 
 int main() {
-    Table table(12);
+    Executor e;
 
-    table.insertRow();
-    table.insertRow();
-    table.write(0, 8, 4, (void*)"abc");
-    table.write(1, 8, 4, (void*)"def");
+    Sql *sql;
 
-    char buf[100];
+    // CREATE TABLE test (a INT, b float, c CHAR(20);
+    vector<ColDef> cds;
+    ColType ct(V_INT, 4);
+    ColDef cd("a", ct);
+    cds.push_back(cd);
 
-    table.read(0, 8, 4, buf);
-    std::cout << buf << std::endl;
-    table.read(1, 8, 4, buf);
-    std::cout << buf << std::endl;
+    ct = ColType(V_FLOAT, 4);
+    cd = ColDef("b", ct);
+    cds.push_back(cd);
+
+    ct = ColType(V_CHAR, 21);
+    cd = ColDef("c", ct);
+    cds.push_back(cd);
+
+    sql = new SqlCreate("test", cds);
+    e.process(sql);
+
+    // INSERT INTO test VALUES (1, 2.0, "3");
+    vector<Value *> values;
+    values.push_back(new IntValue(1));
+    values.push_back(new FloatValue(2.0));
+    values.push_back(new CharValue("3"));
+
+    sql = new SqlInsert("test", values);
+    e.process(sql);
+
+    // Print all rows of tables
+    e.print();
+
     return 0;
 }

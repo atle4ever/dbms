@@ -2,10 +2,10 @@
 
 CC = g++
 CFLAGS = -g -c
-TARGET = dbms
+TARGET = simple_dbms
 
-OBJS=const.o table.o main.o
-SRCS=const.cc table.cc main.cc
+OBJS=Table.o Executor.o main.o
+SRCS=Table.cc Executor.cc main.cc
 
 $(TARGET): $(OBJS)
 	$(CC) $(CLFAGS) -o $(TARGET) $(OBJS)
@@ -13,14 +13,5 @@ $(TARGET): $(OBJS)
 clean:
 	rm -f $(OBJS) $(TARGET) .depend
 
-.cc.o:
+%.o: %.cc *.h
 	$(CC) $(CFLAGS) $< -o $@
-
-depend:
-	makedepend $(CFLAGS) $(SRCS)
-
-# DO NOT DELETE
-
-const.o: const.h
-table.o: table.h const.h
-main.o: table.h const.h
