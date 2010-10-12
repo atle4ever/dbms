@@ -44,8 +44,6 @@ INSERT { adjust(); return INSERT_T; }
 INTO   { adjust(); return INTO_T; }
 VALUES { adjust(); return VALUES_T; }
 
-quit { return QUIT_T; }
-
 CHAR   { adjust(); return CHAR_T; }
 FLOAT  { adjust(); return FLOAT_T; }
 INT    { adjust(); return INT_T; }

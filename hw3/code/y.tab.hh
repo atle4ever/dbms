@@ -39,35 +39,33 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     QUIT_T = 258,
-     CREATE_T = 259,
-     TABLE_T = 260,
-     NAME = 261,
-     INT_VAL_T = 262,
-     FLOAT_VAL_T = 263,
-     CHAR_VAL_T = 264,
-     CHAR_T = 265,
-     INT_T = 266,
-     FLOAT_T = 267,
-     INSERT_T = 268,
-     INTO_T = 269,
-     VALUES_T = 270
+     CREATE_T = 258,
+     TABLE_T = 259,
+     NAME = 260,
+     INT_VAL_T = 261,
+     FLOAT_VAL_T = 262,
+     CHAR_VAL_T = 263,
+     CHAR_T = 264,
+     INT_T = 265,
+     FLOAT_T = 266,
+     INSERT_T = 267,
+     INTO_T = 268,
+     VALUES_T = 269
    };
 #endif
 /* Tokens.  */
-#define QUIT_T 258
-#define CREATE_T 259
-#define TABLE_T 260
-#define NAME 261
-#define INT_VAL_T 262
-#define FLOAT_VAL_T 263
-#define CHAR_VAL_T 264
-#define CHAR_T 265
-#define INT_T 266
-#define FLOAT_T 267
-#define INSERT_T 268
-#define INTO_T 269
-#define VALUES_T 270
+#define CREATE_T 258
+#define TABLE_T 259
+#define NAME 260
+#define INT_VAL_T 261
+#define FLOAT_VAL_T 262
+#define CHAR_VAL_T 263
+#define CHAR_T 264
+#define INT_T 265
+#define FLOAT_T 266
+#define INSERT_T 267
+#define INTO_T 268
+#define VALUES_T 269
 
 
 
@@ -89,7 +87,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 93 "y.tab.hh"
+#line 91 "y.tab.hh"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

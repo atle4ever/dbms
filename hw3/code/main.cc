@@ -32,6 +32,10 @@ int main(int argc, char* argv[])
             query += "\n";
         }
 
+        if(query.compare("quit;") == 0) {
+            break;
+        }
+
         try {
             sql = parser.Sql_process(query);
 

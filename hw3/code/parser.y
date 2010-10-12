@@ -52,7 +52,6 @@ int yyparse(void *YYPARSE_PARAM);
     std::vector<Value> *values;
 }
 
-%token QUIT_T
 %token CREATE_T TABLE_T
 %token <str> NAME
 %token <str> INT_VAL_T FLOAT_VAL_T CHAR_VAL_T
@@ -72,9 +71,6 @@ int yyparse(void *YYPARSE_PARAM);
 sql :
 base_table_def
 | insert_statement
-| QUIT_T {
-    exit(0);
-}
 ;
 
 base_table_def :
