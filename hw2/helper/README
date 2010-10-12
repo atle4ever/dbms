@@ -1,0 +1,25 @@
+// ==---------------------------------------------------------------------------
+// == Some utility file for DBMS hw2
+// ==---------------------------------------------------------------------------
+
+# Q1.sql, Q2.sql, Q3.sql
+Target queries. It is derived from TPC-H Q1, Q3, Q4
+
+# schema.sql
+Hard-structured tables' schema. It is derived from TPC-H tables.
+
+# customer.rb, lineitem.rb, orders.rb
+Convert from SF1 TPC-H dataset(.tbl) to dataset for hard-structured table. It
+remove unused column. And it just select <ratio> % rows.
+
+Usages:
+./lineitem.rb -i <TPC-H dataset> -i <custom dataset -r <ratio>
+
+# Create result
+To create result, use postgres.
+
+1. Create table by using schema.sql.
+2. Insert rows by using following command
+   copy <table> from </path/to/.tbl> with delimiter as '|';
+3. Issue queries.
+

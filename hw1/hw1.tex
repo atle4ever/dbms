@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb}
+
+\title{HW1. Simple DB design}
+%\author{}
+\date{Due date: 2010/9/14 pm 2:00}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\section{Goal}
+
+\begin{itemize}
+	\item Install open-source DBMS on your PC. Postgres(recommend), my-sql, etc.
+	\item Create at least 5 tables.
+	\item Add at least 5 rows to each table.
+	\item Write 10 meaningful SQL queries.
+	\item Create 2 views.
+\end{itemize}
+
+\section{Example}
+\Large \textbf{Tables} \normalsize \\
+create table Sailors (sid int, sname varchar(20), rating int, age int); \\
+create table Boats (bid int, bname varchar(20)); \\
+create table Reserves (sid int, bid int, day date); \\
+\\
+\Large \textbf{Rows} \normalsize \\
+insert into Sailors values (22, `dustin', 7, 45); \\
+insert into Sailors values (28, `yuppy', 9, 35); \\
+insert into Sailors values (31, `lubber', 8, 55); \\
+insert into Sailors values (44, `dustin', 5, 35); \\
+insert into Sailors values (58, `rusty', 10, 35); \\
+\\
+insert into Boats values (101, `Green'); \\
+insert into Boats values (103, `Yellow'); \\
+\\
+insert into Reserves values (22, 101, timestamp `1996-10-10'); \\
+insert into Reserves values (58, 103, timestamp `1996-11-12'); \\
+\\
+\Large \textbf{Meaningful queries} \normalsize \\
+Find names of sailors who’ve reserved boat \#103: \\
+SELECT S.sname  \\
+FROM Sailors as S, Reserves as R \\
+WHERE S.sid = R.sid \\
+and R.bid = 103; \\
+
+\section{Reference document}
+SQL tutorial: http://www.postgresql.org/docs/8.4/interactive/tutorial-sql.html \\
+View tutorial: http://www.postgresql.org/docs/8.4/interactive/tutorial-views.html
+
+\section{Submit}
+Send a email to \textbf{dbms@kdb.snu.ac.kr} w/ SQL queries and meanings of SELECT queries. \\
+And submit a hard copy at class hour.
+
+\end{document}  
