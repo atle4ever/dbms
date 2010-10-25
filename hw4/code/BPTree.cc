@@ -52,7 +52,7 @@ BPTree<Key, Data, NODE_SIZE>::insert(Key key, const Data& data)
 
 template<typename Key, typename Data, int NODE_SIZE>
 void
-BPTree<Key, Data, NODE_SIZE>::bulk(const std::vector< std::pair<Key, Data> >& pairs)
+BPTree<Key, Data, NODE_SIZE>::bulk(std::vector< std::pair<Key, Data> >& pairs)
 {
     // TODO
 }

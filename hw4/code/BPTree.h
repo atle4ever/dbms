@@ -24,7 +24,7 @@ public:
     void insert(Key key, const Data& data);
 
     // Bulk-loading operator
-    void bulk(const std::vector< std::pair<Key, Data> >& pairs);
+    void bulk(std::vector< std::pair<Key, Data> >& pairs);
 
     // Remove opeartion
     // Returns the number of removed entries

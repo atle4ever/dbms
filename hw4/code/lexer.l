@@ -83,14 +83,14 @@ INT    { adjust(); return INT_T; }
 
 \'[^']$ { yyerror("unterminated string");}
 
-[0-9]+ {
+[-]?[0-9]+ {
     yylval.str = new char[strlen(yytext) + 1];
     strcpy(yylval.str, yytext);
     adjust();
     return INT_VAL_T;
 }
 
-(([0-9]+(\.[0-9]*)?)|([0-9]*\.[0-9]+)) {
+[-]?(([0-9]+(\.[0-9]*)?)|([0-9]*\.[0-9]+)) {
     yylval.str = new char[strlen(yytext) + 1];
     strcpy(yylval.str, yytext);
     adjust();
